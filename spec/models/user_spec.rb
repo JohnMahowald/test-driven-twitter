@@ -46,7 +46,7 @@ RSpec.describe User do
       user = User.new
       user.save
       
-      expect(user.errors).to_not be(empty?)
+      expect(user.errors).to_not be_empty?
     end
   end
   
