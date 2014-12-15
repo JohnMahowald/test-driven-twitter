@@ -13,41 +13,37 @@ RSpec.describe User do
   
   describe "#save" do
     it "validates presence of username" do
-      @user.username = ""
-      @user.save
-      
-      expect(@user.errors[:username]).to include("can't be blank")
+      expect(@user).to validate_presence_of(:username)
     end
     
     it "validates presence of email" do
-      @user.email = ""
-      @user.save
-      
-      expect(@user.errors[:email]).to include("can't be blank")
+      expect(@user).to validate_presence_of(:email)
     end
     
-    it "validates presence of password" do
-      @user.password = ""
-      @user.save
-      
-      expect(@user.errors[:password]).to include("can't be blank")
+    it "validates presence of password digest" do
+      expect(@user).to validate_presence_of(:password_digest)
     end
     
     it "validates the length of password" do
       @user.password = "short"
+
       @user.save
-      
-      expect(@user.errors[:password][0]).to eq("is too short (minimum is 6 characters)")
+
+      expect(@user.errors[:password].first).to match(/is too short/)
+    end
+
+    describe "authentication" do
+      describe "#password=" do
+        it "should not store plain text passwords" do
+          expect(@user.password_digest).not_to eql("Sample")
+        end
+      end
+
+      describe "#is_password?" do
+        it "it should verify the password is correct" do
+          expect(@user.is_password?("Sample")).to be true 
+        end
+      end
     end
   end
-  
-  describe "#save" do
-    it "validates presnece of username" do
-      user = User.new
-      user.save
-      
-      expect(user.errors).to_not be_empty?
-    end
-  end
-  
 end
