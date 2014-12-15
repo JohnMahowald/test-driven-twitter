@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   end
 
   def is_password? password
-    puts self.password_digest
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 end
