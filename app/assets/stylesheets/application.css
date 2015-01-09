@@ -11,5 +11,19 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require_relative reset
  *= require_self
  */
+
+html, body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#new-user-form>input {
+  display: block;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #cacaca;
+  margin-top: 10px;
+  padding: 5px;
+}  

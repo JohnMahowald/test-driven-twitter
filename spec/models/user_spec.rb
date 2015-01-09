@@ -20,8 +20,12 @@ RSpec.describe User do
       expect(@user).to validate_presence_of(:email)
     end
     
-    it "validates presence of password digest" do
-      expect(@user).to validate_presence_of(:password_digest)
+    it "validate presence of password digest" do
+      @user = User.new username: "John", email: "John@me.com"
+
+      @user.save
+
+      expect(@user.errors[:password_digest]).to include(/^Password can't be blank$/)
     end
     
     it "validates the length of password" do
@@ -29,7 +33,7 @@ RSpec.describe User do
 
       @user.save
 
-      expect(@user.errors[:password].first).to match(/is too short/)
+      expect(@user.errors[:password]).to include(/is too short/)
     end
 
     describe "authentication" do
