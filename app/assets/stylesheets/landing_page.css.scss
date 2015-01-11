@@ -1,0 +1,169 @@
+// Header
+.global-nav {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 46px;
+  background-color: #fff;
+}
+
+.nav-logo-link {
+  height: 50px;
+  background-image: url("logo-blue.png");
+  background-size: 24px 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 50px;
+  margin-left: 9%;
+  height: 100%;
+}
+
+// Landing Text
+.landing-background {
+  background-image: url(landing-page/gopro_exp.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 46px;
+  width: 100%;
+  min-width: 900px;
+  height: calc(100% - 46px);
+  min-height: 600px;
+}
+
+.front-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 850px;
+  margin: 0 auto;
+  margin-top: 80px;
+  color: #fff;
+}
+
+.welcome-text {
+  width: 550px;
+  padding-right: 100px;
+  float: left;
+  vertical-align: top;
+  > h1 {
+    margin: 0;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 38px;
+  }
+  > p {
+   font-size: 20px; 
+   font-weight: 300;
+   line-height: 31px; 
+   text-align: justify;
+  }
+}
+
+.login {
+  overflow: hidden;
+  width: 300px;
+  float: left;
+}
+
+.sign-up, .sign-in {
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  width: 100%;
+  border: 1px solid #e1e8ed;
+  display: inline-block;
+  > form {
+    padding: 0 12px;
+    > input {
+      width: 100%;
+      display: block;
+      font-size: 13px;
+      border-radius: 3px;
+      border: 1px solid #cacaca;
+      margin-top: 7px;
+      height: auto;
+      line-height: 20px;
+      padding: 4px;
+      color: #292f33;
+      border: 1px solid $input-grey; 
+      &:focus {
+        outline: none;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.05),0 0 8px
+        rgba(82,168,236,0.6);
+      }
+    }
+    > button {
+      display: block;
+      border: none;
+      margin: 7px 0 12px auto;
+      padding: 8px 12px;
+      color: $dark-black;
+      font-weight: 800;
+      line-height: 11px;
+      font-size: 14px;
+      @include prefixer(border-radius, 4px, webkit moz ms o spec);
+    }
+  }
+}
+
+.sign-in {
+  margin-bottom: 10px;
+  > form {
+    [name='session[username]'] {
+      margin: 10px auto;
+    }
+    [name='session[password]'] {
+      width: 190px;
+      display: inline-block;
+    }
+    button {
+      float: right;
+      @include linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.05));
+      background-color: $sign-in-blue;
+      height: 30px;
+      color: #fff;
+      border: 1px solid #3b88c3;
+    }
+  }
+}
+
+.sign-up {
+  > h2 {
+    margin: 0;
+    color: $dark-black;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px;
+    border-bottom: 1px solid #e1e8ed;
+  }
+  > form {
+    > button {
+      background-color: #ffcc4d;
+      border: 1px solid $sign-up-border;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+      @include linear-gradient(#ffcc4d,#ffac33);
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  ul {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    li {
+      display: inline-block;
+      a {
+        text-decoration: none;
+        font-size: 11px;
+        line-height: 18px;
+        margin-left: 4px;
+        color: #fff;
+      }
+    }
+  }
+}

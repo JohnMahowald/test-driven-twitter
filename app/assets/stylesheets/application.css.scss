@@ -10,20 +10,31 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_relative reset
+ *= require reset
+ *= require normalize-rails
  *= require_self
  */
 
-html, body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+@import "bourbon";
+@import "colors";
+@import "fonts";
+@import "landing_page";
+
+*  {
+  box-sizing: border-box; 
 }
 
-#new-user-form>input {
-  display: block;
-  font-size: 16px;
-  border-radius: 3px;
-  border: 1px solid #cacaca;
-  margin-top: 10px;
-  padding: 5px;
-}  
+html, body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

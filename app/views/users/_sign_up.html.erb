@@ -1,0 +1,9 @@
+<form action="/users" method="POST" id="new-user-form">
+  <%= authenticity_token %>
+  <input type="text" name='user[username]' placeholder="@">
+  <input type="text" name='user[email]' placeholder="Email">
+  <input type="password" name="user[password]" placeholder="Password">
+  <button type="submit">Sign up for Twitter</button>
+</form>
+
+

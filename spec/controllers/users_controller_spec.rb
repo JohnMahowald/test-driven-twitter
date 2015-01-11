@@ -35,10 +35,5 @@ RSpec.describe UsersController do
         expect(flash[:notice]).to include(/^Password can't be blank$/)
       end
     end
-
-    context "when password is valid" do
-      # it "redirects the user to their feed list" do
-      # end
-    end
   end
 end

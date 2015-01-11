@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User do
   before :each do
-    @user = User.new username: "John", email: "John@me.com", password: "Sample"
+    @user = create :user
   end
   
   describe "#new" do
@@ -39,13 +39,13 @@ RSpec.describe User do
     describe "authentication" do
       describe "#password=" do
         it "should not store plain text passwords" do
-          expect(@user.password_digest).not_to eql("Sample")
+          expect(@user.password_digest).not_to eql("example")
         end
       end
 
       describe "#is_password?" do
         it "it should verify the password is correct" do
-          expect(@user.is_password?("Sample")).to be true 
+          expect(@user.is_password?("example")).to be true 
         end
       end
     end

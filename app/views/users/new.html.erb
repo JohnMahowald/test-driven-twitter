@@ -1,12 +1,45 @@
-<h1>Hello, World!</h1>
+<div class="global-nav">
+  <div class="nav-logo-link"></div>
+</div>
 
-<form action="/users" method="POST" id="new-user-form">
-  <%= authenticity_token %>
-  <input type="text" name='user[username]' placeholder="@">
-  <input type="text" name='user[email]' placeholder="Email">
-  <input type="password" name="user[password]" placeholder="Password">
-  <button type="submit">Sign up for Twitter</button>
-</form>
+<div class="landing-background">
+  <div class="front-card">
+    <div class="welcome-text">
 
+      <h1>Welcome to Twitter.</h1>
+      <p>Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+    </div> 
 
+  <div class="login">
+      <div class="sign-in">
+        <%= render "sign_in" %>
+      </div>
 
+      <div class="sign-up">
+       <h2><strong>New to Twitter?</strong> Sign up</h2>
+        <%= render "sign_up" %>
+      </div>  
+    </div>
+  </div>
+</div>
+
+<div class='footer'>
+  <ul class='clearfix'>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>About</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Help</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Blog</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Status</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Jobs</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Terms</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Privacy</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Cookies</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Ads Info</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Brand</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Advertise</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Businesses</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Media</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Developers</a></li>
+  	<li><a href="http://www.johnmahowald.com" target='blank'>Directory</a></li>
+        <li><a href="http://www.johnmahowald.com" target='blank'>&copy; 2015 Twitter</a></li>
+  </ul>
+</div>

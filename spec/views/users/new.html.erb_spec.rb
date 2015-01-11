@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe "Users#new" do
   describe "Creating a new user" do
     it "exists" do
-      visit "/users/new"
+      visit "/"
 
-      expect(page).to have_content("Hello, World!")
+      expect(page).to have_content("Welcome to Twitter.");
     end
 
     it "has a input for entering username" do

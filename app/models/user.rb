@@ -5,6 +5,16 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  def User.find_by_credentials(params)
+    user = User.find_by_username(params[:username])
+
+    if user && user.is_password?(params[:password])
+      return true
+    else
+      return false
+    end
+  end
+  
   def password=(secret)
     @password = secret
     self.password_digest = BCrypt::Password.create(secret)
