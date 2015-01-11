@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :ensure_signed_in, only: [:show]
+
   def new
   end
 
@@ -17,6 +19,12 @@ class UsersController < ApplicationController
   end
   
   private
+
+  def ensure_signed_in
+    unless @current_user
+      render :new
+    end
+  end
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
