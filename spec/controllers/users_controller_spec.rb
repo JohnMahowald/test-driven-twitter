@@ -46,14 +46,15 @@ RSpec.describe UsersController do
       end
     end
 
-    # context "when user is signed in" do
-    #   it "directs the user to the users show page" do
-    #     @user = create :user
-    #
-    #     get :show, id: @user.id
-    #
-    #     expect(response).to render_template(:show)
-    #   end
-    # end
+    context "when user is signed in" do
+      it "directs the user to the users show page" do
+        @user = create :user
+        @controller.login!(@user)
+
+        get :show, id: @user.id
+
+        expect(response).to render_template(:show)
+      end
+    end
   end
 end

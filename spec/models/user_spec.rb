@@ -44,8 +44,44 @@ RSpec.describe User do
       end
 
       describe "#is_password?" do
-        it "it should verify the password is correct" do
+        it "should verify the password is correct" do
           expect(@user.is_password?("example")).to be true 
+        end
+      end
+
+      describe "User#find_by_credentials" do
+        it "should return false if given incorrect params" do
+          user = User.find_by_credentials({
+            username: @user.username,
+            password: "incorrect"
+          })
+
+          expect(user).to be(false)
+        end
+
+        it "should return the user if given correct params" do
+          user = User.find_by_credentials({
+            username: @user.username,
+            password: @user.password
+          })
+
+          expect(user).to eq(@user)
+        end
+      end
+
+      describe "#reset_session_token!" do
+        it "should call the User#generate_session_token method" do
+          expect(User).to receive(:generate_session_token)
+
+          @user.reset_session_token!
+        end
+
+        it "should change the users session token" do
+          token = @user.reset_session_token!
+
+          @user.reset_session_token!
+
+          expect(@user.session_token).not_to eq(token)
         end
       end
     end

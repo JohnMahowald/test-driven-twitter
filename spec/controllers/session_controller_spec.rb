@@ -11,7 +11,7 @@ RSpec.describe SessionController do
       request.env['HTTP_REFERER'] = '/'
     end
 
-    context "when user is not yet signed in" do
+    context "user enters invalid credentials" do
       it 'validates the username exists' do
         post 'create', session: {
           username: 'fake_user'
@@ -29,14 +29,27 @@ RSpec.describe SessionController do
 
         expect(flash[:notice]).to include(/^Incorrect password. Please try again.$/);
       end
+    end
 
-      it 'logs in a user if username and password are correct' do
-        post 'create', session: {
-          username: @user.username,
-          password: @user.password
-        }
+    context "when user enters correct credentials" do
+      before(:each) do
+        def make_post_request
+          post 'create', session: {
+            username: @user.username,
+            password: @user.password
+          }
+        end
+      end
+      it "logs in a user" do
+        expect(@controller).to receive(:login!)
 
-        expect(response).to redirect_to user_url(@user)
+        make_post_request
+      end
+
+      it 'redirects the user to the user_url' do
+        make_post_request 
+
+        expect(response).to redirect_to(user_url(@user))
       end
     end
   end
