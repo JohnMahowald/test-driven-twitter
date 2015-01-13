@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     unless session[:token]
       return nil
     end
+
     @current_user ||= User.find_by_session_token(session[:token])
   end
 end

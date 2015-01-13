@@ -25,7 +25,7 @@ RSpec.describe User do
 
       @user.save
 
-      expect(@user.errors[:password_digest]).to include(/^Password can't be blank$/)
+      expect(@user.errors.full_messages).to include(/^Password can't be blank$/)
     end
     
     it "validates the length of password" do
