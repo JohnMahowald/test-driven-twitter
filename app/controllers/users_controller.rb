@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   private
 
   def ensure_signed_in
-    unless @current_user
+    unless current_user
       render :new
     end
   end

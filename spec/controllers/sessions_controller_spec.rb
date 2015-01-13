@@ -33,7 +33,7 @@ RSpec.describe SessionsController do
 
     context "when user enters correct credentials" do
       before(:each) do
-        def make_post_request
+        def sign_in_user
           post 'create', session: {
             username: @user.username,
             password: @user.password
@@ -43,13 +43,19 @@ RSpec.describe SessionsController do
       it "logs in a user" do
         expect(@controller).to receive(:login!)
 
-        make_post_request
+        sign_in_user
       end
 
       it 'redirects the user to the user_url' do
-        make_post_request 
+        sign_in_user
 
         expect(response).to redirect_to(user_url(@user))
+      end
+
+      it 'sets the current_user to the user' do
+        sign_in_user
+
+        expect(@controller.current_user).to eq(@user)
       end
     end
   end
