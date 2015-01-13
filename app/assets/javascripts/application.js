@@ -15,6 +15,21 @@
 //= require_tree .
 
 $(document).ready( function () {
-  $('input[name="session[password]"]').focus( function () {
-  });
+  function setUsernamePreTag(e) {
+    $(e.currentTarget).val("@");
+  }
+
+  function resetUsername(e) {
+    if ($(e.currentTarget).val() === "@") {
+      $(e.currentTarget).val("");
+    }
+  }
+
+  $('input[name="user[username]"]')
+    .focus(setUsernamePreTag) 
+    .focusout(resetUsername);
+
+  $('input[name="session[username]"]')
+    .focus(setUsernamePreTag)
+    .focusout(resetUsername);
 });
