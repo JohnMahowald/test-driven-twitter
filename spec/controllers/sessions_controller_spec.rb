@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SessionController do
+RSpec.describe SessionsController do
   before(:each) do
     @user = create :user
     @user.save
