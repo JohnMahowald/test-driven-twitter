@@ -6,7 +6,7 @@ RSpec.describe User do
   end
   
   describe "#new" do
-    it "takes three arameters and returns a User object" do
+    it "takes three parameters and returns a User object" do
       expect(@user).to be_a User
     end
   end
