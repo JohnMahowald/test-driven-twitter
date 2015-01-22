@@ -8,7 +8,7 @@ RSpec.describe Tweet do
       })
 
       expect(tweet).to be_a Tweet
-      expect(tweet.content).to be "First Tweet"
+      expect(tweet.content).to eq "First Tweet"
     end
   end
 end
