@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": ["tweet"],
+  "properties": {
+    "tweet": {
+      "type": "object",
+      "required": [
+        "content",
+        "created_at",
+        "id"
+      ]
+    },
+    "properties": {
+      "content": { "type": "string" },
+      "created_at": { "type": "string", "format": "date-time" },
+      "id": { "type": "integer" }
+    }
+  }
+}

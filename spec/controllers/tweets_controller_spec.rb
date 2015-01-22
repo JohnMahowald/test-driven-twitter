@@ -11,6 +11,7 @@ RSpec.describe Api::TweetsController do
         expect(response.content_type).to eq 'application/json'
         expect(response.status).to eq 422
         expect(errors).to include("Content can't be blank")
+        expect(response).to match_response_schema("tweet")
       end
     end
   end

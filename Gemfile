@@ -21,6 +21,7 @@ gem 'rspec-rails'
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'codeclimate-test-reporter', require: nil
+  gem 'json-schema'
 end
 
 group :development do

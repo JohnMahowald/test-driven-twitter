@@ -2,6 +2,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'spec_helper'
+require "json-schema"
 require 'rspec/rails'
 require 'shoulda/matchers'
 
