@@ -3,6 +3,7 @@ class Api::TweetsController < ApplicationController
     tweet = Tweet.new(tweet_params)
 
     if tweet.save
+      puts tweet.inspect
       render json: tweet
     else
       render json: { errors: tweet.errors.full_messages } , status: :unprocessable_entity

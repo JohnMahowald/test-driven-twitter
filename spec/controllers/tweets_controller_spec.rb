@@ -11,7 +11,19 @@ RSpec.describe Api::TweetsController do
         expect(response.content_type).to eq 'application/json'
         expect(response.status).to eq 422
         expect(errors).to include("Content can't be blank")
-        expect(response).to match_response_schema("tweet")
+      end
+    end
+
+    context "when contents is present" do
+      it "returns the newly created object" do
+        post :create, tweet: { content: "First Tweets" }
+
+        response_body = JSON.parse(response.body)
+
+        expect(response.content_type).to eq 'application/json'
+        expect(response.status).to eq 200
+        expect(response_body["content"]).to eq "First Tweets"
+        expect(response).to match_response_schema "tweet"
       end
     end
   end
