@@ -27,4 +27,19 @@ RSpec.describe Api::TweetsController do
       end
     end
   end
+
+  describe "POST #update" do
+    context "when content is empty string" do
+      it "validates the presence of new content" do
+      end
+    end
+
+    context "when content is provided" do
+      it "updates the tweet with the new content" do
+      end
+
+      it "returns the object as JSON" do
+      end
+    end
+  end
 end
