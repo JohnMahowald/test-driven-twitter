@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'annotate', group: [:development, :test]
 gem 'bcrypt', '~> 3.1.7'
 gem 'bourbon'
 gem 'capybara'
