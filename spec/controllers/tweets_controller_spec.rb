@@ -34,19 +34,25 @@ RSpec.describe Api::TweetsController do
       @tweet = create :tweet
     end
 
-    context "when content is empty string" do
+    context "when content is an empty string" do
       it "validates the presence of new content" do
-        post :update, id: @tweet.id, tweet: { content: @tweet.content }
+        post :update, id: @tweet.id, tweet: { content: "" }
 
-        expect(@tweet.content).to be "Second Tweet"
+        errors = JSON.parse(response.body)["errors"]
+
+        expect(response.status).to eq 422
+        expect(errors).to include "Content can't be blank"
       end
     end
 
     context "when content is provided" do
       it "updates the tweet with the new content" do
+        post :update, id: @tweet.id, tweet: { content: "Updated" }
+
+        expect(@tweet.content).to be "Update"
       end
 
-      it "returns the object as JSON" do
+      it "the respone is properly formatted" do
       end
     end
   end

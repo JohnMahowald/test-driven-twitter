@@ -12,7 +12,7 @@ class Api::TweetsController < ApplicationController
   def update
     @tweet = Tweet.find(params[:id])
 
-    if @tweet.update_attributes!(tweet_params)
+    if @tweet.update_attributes(tweet_params)
       render :tweet
     else
       render json: { errors: @tweet.errors.full_messages }, status: :unprocessable_entity
@@ -24,3 +24,4 @@ class Api::TweetsController < ApplicationController
     params.require(:tweet).permit(:content)
   end
 end
+
