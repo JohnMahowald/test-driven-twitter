@@ -36,7 +36,7 @@ RSpec.describe Api::TweetsController do
 
     context "when content is empty string" do
       it "validates the presence of new content" do
-        post :update, tweet: { content: "Second Tweet" }
+        post :update, id: @tweet.id, tweet: { content: @tweet.content }
 
         expect(@tweet.content).to be "Second Tweet"
       end
