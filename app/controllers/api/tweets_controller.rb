@@ -3,7 +3,7 @@ class Api::TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
-      render :create
+      render :tweet
     else
       render json: { errors: @tweet.errors.full_messages }, status: :unprocessable_entity
     end

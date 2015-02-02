@@ -46,13 +46,12 @@ RSpec.describe Api::TweetsController do
     end
 
     context "when content is provided" do
-      it "updates the tweet with the new content" do
-        post :update, id: @tweet.id, tweet: { content: "Updated" }
+      it "updates the tweet with the new content and returns JSON" do
+        post :update, id: @tweet.id, tweet: { content: "Updated" }, format: :json
 
-        expect(@tweet.content).to be "Update"
-      end
-
-      it "the respone is properly formatted" do
+        expect(JSON.parse(response.body)["tweet"]["content"]).to eq "Updated"
+        expect(response.status).to eq 200
+        expect(response).to match_response_schema "tweet"
       end
     end
   end
