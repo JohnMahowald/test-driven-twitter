@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :redirect_current_user, only: [:new]
   before_action :ensure_signed_in, only: [:show]
-  before_action :redirect_current_user
+  before_action :ensure_privileges, only: [:show]
 
   def new
   end
@@ -22,12 +23,20 @@ class UsersController < ApplicationController
   private
   
   def redirect_current_user
-    render :show if current_user
+    if current_user
+      redirect_to user_url current_user
+    end
   end
 
   def ensure_signed_in
     unless current_user
-      render :new
+      redirect_to :root
+    end
+  end
+
+  def ensure_privileges
+    unless current_user.id == params[:id].to_i
+      redirect_to user_url current_user
     end
   end
 
