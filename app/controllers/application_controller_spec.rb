@@ -1,4 +1,5 @@
 require 'rails_helper' 
+require 'byebug'
 
 RSpec.describe ApplicationController, type: :controller do
   before(:each) do
@@ -29,17 +30,56 @@ RSpec.describe ApplicationController, type: :controller do
     end
   end
 
-  describe '#current_user' do
-    it 'returns nil if there is no session_token' do
-      expect(controller.current_user).to be_nil
+  describe '#logout!' do
+    it "resets the user's session token" do
+      expect(@user).to receive(:reset_session_token!)
+
+      controller.logout!(@user)
     end
 
-    it 'identifies the current user by session token' do
-      controller.login!(@user)
+    it "resets the session token to be nil" do
+      session[:token] = "nothing important"
 
-      expect(User).to receive(:find_by_session_token)
+      controller.logout!(@user)
+      
+      expect(session[:token]).to be_nil
+    end
+  end
 
-      controller.current_user
+  describe '#current_user' do
+    context "when no user is signed in" do
+
+      it 'returns nil if there is no session_token' do
+        session[:token] = nil
+
+        expect(controller.current_user).to be_nil
+      end
+    end
+
+    context "when a user is signed in" do
+
+      before(:each) do
+        @user.session_token = "session"
+        @user.save!
+
+        session[:token] = @user.session_token
+      end
+
+      it 'identifies the current user by session token' do
+        expect(User).to receive(:find_by_session_token).with("session").and_return @user
+
+        expect(controller.current_user).to eq @user
+      end
+
+      it 'stores the current_user in a local variable' do
+        expect(User).to receive(:find_by_session_token).with("session").and_return @user
+
+        expect(controller.current_user).to eq @user
+
+        expect(User).not_to receive(:find_by_session_token)
+
+        expect(controller.current_user).to eq @user
+      end
     end
   end
 end

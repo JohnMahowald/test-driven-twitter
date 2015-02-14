@@ -10,6 +10,11 @@ class SessionsController < ApplicationController
       redirect_with_errors
     end
   end
+
+  def destroy
+    logout!(@current_user)
+    redirect_to "users#new"
+  end
   
   private
 
