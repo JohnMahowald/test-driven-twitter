@@ -13,8 +13,6 @@ gem 'namae', '~> 0.9.2'
 gem 'normalize-rails'
 gem 'rails', '4.1.8'
 gem 'sass-rails', '~> 4.0.3'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'rspec-rails'
@@ -31,10 +29,9 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'spring'
 end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :doc do
+  gem 'sdoc', '~> 0.4.0'
+end

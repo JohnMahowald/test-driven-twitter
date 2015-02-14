@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    logout!(@current_user)
-    redirect_to "users#new"
+    logout!(current_user)
+    redirect_to "/"
   end
   
   private

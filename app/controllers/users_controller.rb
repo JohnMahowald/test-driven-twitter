@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_signed_in, only: [:show]
+  before_action :redirect_current_user
 
   def new
   end
@@ -19,6 +20,10 @@ class UsersController < ApplicationController
   end
   
   private
+  
+  def redirect_current_user
+    render :show if current_user
+  end
 
   def ensure_signed_in
     unless current_user
