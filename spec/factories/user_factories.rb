@@ -12,7 +12,7 @@ FactoryGirl.define do
     password "short"
   end
 
-  factory :fake_user, class: User do
+  factory :fake_user, aliases: [:followee], class: User do
     email "different@example.com"
     username "@different"
     password "different"
