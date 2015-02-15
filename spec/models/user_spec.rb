@@ -105,4 +105,7 @@ RSpec.describe User do
       expect(@user).to have_many :tweets
     end
   end
+
+  describe "#follows" do
+  end
 end

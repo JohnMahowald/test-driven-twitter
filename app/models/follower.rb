@@ -4,11 +4,11 @@
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer          not null
-#  follower_id :integer          not null
+#  followee_id :integer          not null
 #  created_at  :datetime
 #  updated_at  :datetime
 #
 
 class Follower < ActiveRecord::Base
-  validates :user_id, :follower_id, presence: true
+  validates :user_id, :followee_id, presence: true
 end
