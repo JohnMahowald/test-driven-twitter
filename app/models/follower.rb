@@ -10,4 +10,5 @@
 #
 
 class Follower < ActiveRecord::Base
+  validates :user_id, :follower_id, presence: true
 end
