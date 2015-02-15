@@ -42,7 +42,7 @@ RSpec.describe UsersController do
       it "redirects the user to users#new" do
         get :show, id: 1
 
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to :root
       end
     end
 
