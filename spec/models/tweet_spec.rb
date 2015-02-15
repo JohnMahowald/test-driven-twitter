@@ -15,6 +15,7 @@ RSpec.describe Tweet do
   before(:each) do
     @tweet = Tweet.new
   end
+
   describe "#new" do
     it "can create a tweet" do
       @tweet.content = "First Tweet"

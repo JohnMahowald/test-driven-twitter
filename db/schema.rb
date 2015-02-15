@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150215025008) do
 
-  create_table "followers_tables", force: true do |t|
+  create_table "followers", force: true do |t|
     t.integer  "user_id",     null: false
     t.integer  "follower_id", null: false
     t.datetime "created_at"
