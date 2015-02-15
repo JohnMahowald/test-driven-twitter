@@ -5,7 +5,7 @@ class Api::TweetsController < ApplicationController
     if @tweet.save
       render :tweet
     else
-      render json: { errors: @tweet.errors.full_messages }, status: :unprocessable_entity
+      render :errors, status: :unprocessable_entity
     end
   end
 
@@ -15,7 +15,7 @@ class Api::TweetsController < ApplicationController
     if @tweet.update_attributes(tweet_params)
       render :tweet
     else
-      render json: { errors: @tweet.errors.full_messages }, status: :unprocessable_entity
+      render :errors, status: :unprocessable_entity
     end
   end
 
@@ -41,11 +41,11 @@ class Api::TweetsController < ApplicationController
   end
 
   def destroy_or_return tweet
-    if tweet
+    if tweet && (current_user.id == tweet.user_id)
       tweet.destroy!
       render :tweet
     else
-      render :not_found, status: :unprocessable_entity
+      render :unprocessable, status: :unprocessable_entity
     end
   end
 end

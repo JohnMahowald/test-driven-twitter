@@ -7,7 +7,7 @@ RSpec.describe Api::TweetsController, type: :controller do
   describe "POST #create" do
     context "when content is not present" do
       it "renders errors as JSON" do
-        post :create, tweet: { content: "" }
+        post :create, tweet: { content: "" }, format: :json
 
         errors = JSON.parse(response.body)["errors"]
 
@@ -37,7 +37,7 @@ RSpec.describe Api::TweetsController, type: :controller do
 
     context "when content is an empty string" do
       it "validates the presence of new content" do
-        post :update, id: @tweet.id, tweet: { content: "" }
+        post :update, id: @tweet.id, tweet: { content: "" }, format: :json
 
         errors = JSON.parse(response.body)["errors"]
 
@@ -84,6 +84,40 @@ RSpec.describe Api::TweetsController, type: :controller do
 
       expect(response.status).to be 422
       expect(response).to match_response_schema "not_found"
+    end
+  end
+
+  describe "#destroy" do
+    before (:each) { @user = create :user }
+
+    it "can only be called if the current_user is the owner of the tweet" do
+      @fake_user = create :fake_user
+
+      @tweet = create :tweet
+      @tweet.user_id = @user.id
+      @tweet.save
+
+      expect(@controller).to receive(:current_user).and_return(@fake_user)
+
+      post :destroy, id: @tweet.id, format: :json
+
+      expect(response.status).to be 422
+      expect(response.body).to include "Unable to process the request"
+      expect(response).to match_response_schema "unprocessable"
+    end
+
+    it "returns the tweet if the request was successful" do
+      @tweet = create :tweet
+      @tweet.user_id = @user.id
+      @tweet.save
+
+      expect(@controller).to receive(:current_user).and_return(@user)
+
+      post :destroy, id: @tweet.id, format: :json
+
+      expect(response.status).to be 200
+      expect(response.body).to include @tweet.content
+      expect(response).to match_response_schema "tweet"
     end
   end
 end

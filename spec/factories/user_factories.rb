@@ -11,4 +11,10 @@ FactoryGirl.define do
     username "@johnwritescode"
     password "short"
   end
+
+  factory :fake_user, class: User do
+    email "different@example.com"
+    username "@different"
+    password "different"
+  end
 end
