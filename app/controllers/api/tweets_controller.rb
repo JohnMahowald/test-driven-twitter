@@ -45,7 +45,7 @@ class Api::TweetsController < ApplicationController
       tweet.destroy!
       render :tweet
     else
-      render :unprocessable, status: :unprocessable_entity
+      render "api/shared/unprocessable", status: :unprocessable_entity
     end
   end
 end

@@ -10,5 +10,7 @@
 #
 
 class Follower < ActiveRecord::Base
+  include ActiveModel::Validations
+  validates_with FolloweeExists
   validates :user_id, :followee_id, presence: true
 end

@@ -5,7 +5,7 @@ class Api::FollowersController < ApplicationController
     if @follower.save
       render :follower
     else
-      render :unprocessable, status: unprocessable_entity
+      render "/api/shared/unprocessable", status: :unprocessable_entity
     end
   end
 

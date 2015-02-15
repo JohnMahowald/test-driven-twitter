@@ -22,6 +22,9 @@ RSpec.describe Api::FollowersController, type: :controller do
 
     context "when the followee doesn't exist" do
       it "cannot create a new follower" do
+        post :create, follower: { user_id: @user.id, followee_id: 2000 }, format: :json
+
+        expect(response.status).to be 422
       end
     end
   end
