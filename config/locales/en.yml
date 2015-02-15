@@ -22,5 +22,7 @@
 en:
   activerecord:
     attributes:
+      tweet:
+        user_id: "User_id"
       user:
         password_digest: "Password"

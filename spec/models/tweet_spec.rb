@@ -44,6 +44,14 @@ RSpec.describe Tweet do
 
       expect(@tweet.errors.full_messages).to include "Content is too short (minimum is 1 characters)"
     end
+
+    it "validates the presence of the user_id" do
+      @tweet.user_id = nil
+
+      @tweet.save
+
+      expect(@tweet.errors.full_messages).to include "User_id can't be blank"
+    end
   end
 end
 
