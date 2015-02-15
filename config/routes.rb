@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :tweets, only: [:create, :index, :show, :update, :destroy]
+    resources :followers, only: [:create, :destroy]
   end
 end

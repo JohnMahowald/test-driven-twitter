@@ -1,4 +1,4 @@
-class FollowersController < ApplicationController
+class Api::FollowersController < ApplicationController
   def create
   end
 
