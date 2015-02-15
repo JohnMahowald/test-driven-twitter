@@ -29,8 +29,23 @@ class Api::TweetsController < ApplicationController
     end
   end
 
+  def destroy
+    @tweet = Tweet.find_by_id params[:id]
+
+    destroy_or_return @tweet
+  end
+
   private
   def tweet_params
-    params.require(:tweet).permit(:content)
+    params.require(:tweet).permit(:content, :user_id)
+  end
+
+  def destroy_or_return tweet
+    if tweet
+      tweet.destroy!
+      render :tweet
+    else
+      render :not_found, status: :unprocessable_entity
+    end
   end
 end

@@ -19,7 +19,7 @@ RSpec.describe Api::TweetsController, type: :controller do
 
     context "when contents is present" do
       it "returns the newly created object" do
-        post :create, tweet: { content: "First Tweets" }, format: :json
+        post :create, tweet: { content: "First Tweets", user_id: 1 }, format: :json
         response_body = JSON.parse(response.body)
 
         expect(response.content_type).to eq 'application/json'
