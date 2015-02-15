@@ -19,9 +19,18 @@ class Api::TweetsController < ApplicationController
     end
   end
 
+  def show
+    @tweet = Tweet.find_by_id params[:id]
+
+    if @tweet
+      render :tweet
+    else
+      render :not_found, status: :unprocessable_entity
+    end
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:content)
   end
 end
-

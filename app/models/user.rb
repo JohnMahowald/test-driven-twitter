@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many :tweets
+
   def User.find_by_credentials(params)
     user = User.find_by_username(params[:username])
     User.ensure_valid_user_and_password(user, params[:password])

@@ -86,4 +86,10 @@ RSpec.describe User do
       end
     end
   end
+
+  describe "Active Record relations" do
+    it "should have many tweets" do
+      expect(@user).to have_many :tweets
+    end
+  end
 end
