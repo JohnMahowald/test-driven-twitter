@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string(255)      not null
+#  email           :string(255)      not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#  password_digest :string(255)      not null
+#  session_token   :string(255)
+#
+
 class User < ActiveRecord::Base
   validates :username, :email, presence: true
   validates :password_digest, presence: { message: "can't be blank" } 
