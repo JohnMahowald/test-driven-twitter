@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'byebug'
 
 RSpec.describe Api::TweetsController, type: :controller do
   render_views

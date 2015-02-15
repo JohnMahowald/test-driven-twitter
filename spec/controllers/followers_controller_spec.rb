@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe FollowersController, type: :controller do
+RSpec.describe Api::FollowersController, type: :controller do
+  render_views
+
   before(:each) do
     @user = create :user 
     @followee = create :followee
@@ -13,8 +15,8 @@ RSpec.describe FollowersController, type: :controller do
       it "can create a new follower" do
         post :create, follower: { user_id: @user.id, followee_id: @followee.id }, format: :json
 
-        expect(reponse.status).to be 422
-        expect(repsonse).to match_response_schema "followers"
+        expect(response.status).to be 200
+        expect(response).to match_response_schema "follower"
       end
     end
 

@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": ["follower"],
+  "properties": {
+    "follower": {
+      "type": "object",
+      "required": [
+        "user_id",
+        "followee_id"
+      ],
+      "properties": {
+        "user_id": { "type": "integer" },
+        "followee_id": { "type": "integer" }
+      }
+    }
+  }
+}
