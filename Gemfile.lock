@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/reactjs/react-rails.git
-  revision: 901c8f68445df849642394cdf9859d293dc13f04
+  revision: 99a1b38b28dbade8bac7b58bca0454d7348235de
   specs:
     react-rails (1.0.0.pre)
       coffee-script-source (~> 1.9)
@@ -47,7 +47,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.7)
-    annotate (2.6.6)
+    annotate (2.6.7)
       activerecord (>= 2.3.0)
       rake (~> 10.4.2, >= 10.4.2)
     arel (5.0.1.20140414130214)
@@ -84,7 +84,7 @@ GEM
     coffee-script-source (1.9.1)
     columnize (0.9.0)
     connection_pool (2.1.2)
-    daemons (1.1.9)
+    daemons (1.2.1)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
@@ -150,7 +150,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
-    react-source (0.12.2)
+    react-source (0.13.0)
     rspec-core (3.2.1)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
@@ -186,13 +186,13 @@ GEM
     simplecov-html (0.9.0)
     slop (3.6.0)
     spring (1.3.3)
-    sprockets (2.12.3)
+    sprockets (2.9.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-commonjs (0.0.5)
-      sprockets (~> 2.1)
+    sprockets-commonjs (0.0.6)
+      sprockets (~> 2.9.2)
     sprockets-rails (2.2.4)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -237,6 +237,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.1.8)
+  rake
   react-rails (~> 1.0.0.pre)!
   rspec-rails
   sass-rails (~> 4.0.3)
