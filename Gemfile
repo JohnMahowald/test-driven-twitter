@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.2.0"
 
 gem 'annotate', group: [:development, :test]
 gem 'bcrypt', '~> 3.1.7'
