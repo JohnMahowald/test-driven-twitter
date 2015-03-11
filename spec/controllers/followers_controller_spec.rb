@@ -31,15 +31,15 @@ RSpec.describe Api::FollowersController, type: :controller do
 
   describe "#destroy" do
     context "when a follower exists" do
-      it "can destroy an existing follower" do
+      pending "can destroy an existing follower" do
       end
       
-      it "cannot destroy another users followers" do
+      pending "cannot destroy another users followers" do
       end
     end
 
     context "when a follower doesn't exist" do
-      it "cannot destroy a follower that doesn't exist" do
+      pending "cannot destroy a follower that doesn't exist" do
       end
     end
   end
