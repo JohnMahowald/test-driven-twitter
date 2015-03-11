@@ -26,6 +26,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'json-schema'
   gem 'rake'
+  gem 'launchy'
 end
 
 group :development do
