@@ -20,3 +20,6 @@
 
 # Ignore project planning files
 /planning
+
+# Ignore package.json installations
+node_modules
