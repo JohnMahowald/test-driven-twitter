@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby "2.2.0"
 
-gem 'annotate', group: [:development, :test]
 gem 'bcrypt', '~> 3.1.7'
 gem 'bourbon'
 gem 'capybara'
@@ -36,6 +35,11 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'spring'
+end
+
+group :development, :test do
+  gem 'jasmine-rails'
+  gem 'annotate'
 end
 
 group :doc do
