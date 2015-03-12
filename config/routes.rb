@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
   root to: "users#new"
   resources :users
   resource :session, only: [:create, :destroy]
