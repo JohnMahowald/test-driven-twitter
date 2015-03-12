@@ -61,6 +61,8 @@ GEM
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
+    browserify-rails (0.7.5)
+      sprockets (~> 2.0)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -231,6 +233,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bourbon
+  browserify-rails (~> 0.5)
   byebug
   capybara
   codeclimate-test-reporter
