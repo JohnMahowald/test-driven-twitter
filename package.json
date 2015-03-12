@@ -1,0 +1,23 @@
+{
+  "name": "test-driven-twitter",
+  "version": "1.0.0",
+  "description": "Cloning twitter exclusively with test driven development",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohnMahowald/test-driven-twitter"
+  },
+  "author": "John Mahowald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnMahowald/test-driven-twitter/issues"
+  },
+  "homepage": "https://github.com/JohnMahowald/test-driven-twitter",
+  "devDependencies": {
+    "browserify": "~>6.3",
+    "browserify-incremental": "^1.4.0",
+    "reactify": "^0.17.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
